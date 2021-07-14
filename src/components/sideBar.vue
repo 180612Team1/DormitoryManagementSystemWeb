@@ -11,7 +11,7 @@ export default {
   name: 'sideBar',
   data () {
     return {
-      role: 1,
+      role: this.$store.state.role,
       selectBtn: 0
     }
   },
@@ -66,6 +66,13 @@ export default {
     }
   },
   watch: {
+    // role: {
+    //   handler: function() {
+    //     return this.menu
+    //   }
+    // },
+    // deep: true,
+    // immediate: true
 
   }
 

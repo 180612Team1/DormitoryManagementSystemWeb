@@ -13,12 +13,17 @@ export default {
   name: 'topBar',
   data () {
     return {
-      username: '测试1',
-      role: 0
+      username: this.$store.state.userName,
+      role: this.$store.state.role
     }
   },
   methods: {
     handleLogout () {
+      // 清除token
+      sessionStorage.clear()
+      // 提示消息
+      this.$message.success('退出成功')
+      // 回到登陆页面
       this.$router.push('/login')
     }
   },
@@ -31,12 +36,13 @@ export default {
       let whoRole = this.role === 0 ? `系统管理员` : this.role === 1 ? `宿舍管理员` : `同学`
       return whoName + whoRole
     }
-  }
+  },
   // created () {
   //   //
   // }
-  // mounted () {
-  // }
+  mounted () {
+    //
+  }
 
 }
 </script>

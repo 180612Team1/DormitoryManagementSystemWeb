@@ -22,11 +22,35 @@ export default {
     }
   },
   methods: {
-    handleLogin () {
-      this.$router.push('/')
+    async handleLogin () {
+      let response = await this.$axios({
+        method: 'get',
+        url: 'http://localhost:8091/user/login',
+        params: {
+          userName: this.username,
+          passWord: this.password
+        }
+      })
+      console.log(response)
+      if (response.data.code === '1000') {
+        sessionStorage.setItem('token', this.username)
+        sessionStorage.setItem('role', response.data.role)
+        this.$store.state.userName = response.data.userName
+        this.$store.state.role = response.data.role
+        this.$router.push('/')
+      } else {
+        this.$message({
+          message: response.data.message,
+          type: 'error',
+          duration: 1000
+        })
+        console.log('no')
+      }
     }
+  },
+  mounted() {
+    //
   }
-
 }
 </script>
 

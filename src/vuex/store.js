@@ -5,9 +5,9 @@ import persistedState from 'vuex-persistedstate'
 Vue.use(Vuex)
 
 const state = {
-  // role: 0,
+  role: 0,
   // trueName: '',
-  // userName: '',
+  userName: ''
   // id: ''
 }
 

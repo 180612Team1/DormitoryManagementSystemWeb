@@ -19,6 +19,13 @@ export default {
   methods: {
 
   },
+  beforeCreate() {
+    const token = sessionStorage.getItem('token')
+
+    if (!token) {
+      this.$router.push('login')
+    }
+  },
   components: {
     sideBar,
     topBar
