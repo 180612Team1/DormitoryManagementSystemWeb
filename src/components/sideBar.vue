@@ -11,7 +11,7 @@ export default {
   name: 'sideBar',
   data () {
     return {
-      role: 0,
+      role: 1,
       selectBtn: 0
     }
   },
@@ -46,6 +46,10 @@ export default {
         {
           id: 2,
           name: '个人信息'
+        },
+        {
+          id: 3,
+          name: '个人SAASD信息'
         }
       ]
       let student = [
