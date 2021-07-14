@@ -80,12 +80,13 @@ export default {
     // background: fuchsia;
     .btn {
       margin: auto;
-      background: #f56c6c;
+      // background: #f56c6c;
+      background: transparent ;
       color: white;
       margin-left: 2rem;
       padding: 0.2rem 0.8rem;
       font-size: 1rem;
-      border: 0.1rem solid #f56c6c;
+      border: 0.1rem solid #fff;
       border-radius: 3rem;
     }
   }
