@@ -43,12 +43,13 @@ export default {
 
 <style lang='less'>
 .topBarContent {
+  color: #FFF;
   position: fixed;
   display: flex;
   width: 100%;
   // left: 15%;
   height: 6.97%;
-  background: #79BBFF;
+  background: #001529;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
   // line-height: max-content;
   .titleBox {

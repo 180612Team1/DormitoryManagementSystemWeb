@@ -15,6 +15,9 @@ export default {
       selectBtn: 0
     }
   },
+  methods: {
+
+  },
   computed: {
     menu () {
       let admin = [
@@ -75,7 +78,7 @@ export default {
   height: 93%;
   width: 15%;
   float: left;
-  background: #b3d8ff;
+  background: #fff;
   .btnBox{
     margin:0.7rem 0;
     background:none;
@@ -85,12 +88,14 @@ export default {
       cursor: pointer;
       width:100%;
       border:none;
+      // border: 1px solid #7dbcff;
       // background:#7dbcff;
-      background:#abcef3;
+      // background:#abcef3;
+      background: transparent;
       height:2.5rem;
     }
     .show{
-       background:#7dbcff;
+       background:#b2d5fa;
     }
   }
 }
