@@ -50,7 +50,7 @@ export default {
 <style lang='less'>
 .topBarContent {
   color: #FFF;
-  position: fixed;
+  position: absolute;
   display: flex;
   width: 100%;
   // left: 15%;

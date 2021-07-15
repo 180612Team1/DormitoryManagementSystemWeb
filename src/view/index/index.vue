@@ -2,6 +2,9 @@
   <div>
     <side-bar></side-bar>
     <top-bar></top-bar>
+    <div class="pageContent">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -11,7 +14,7 @@ import sideBar from '../../components/sideBar.vue'
 import topBar from '../../components/topBar.vue'
 export default {
   name: 'index',
-  data () {
+  data() {
     return {
 
     }
@@ -23,7 +26,7 @@ export default {
     const token = sessionStorage.getItem('token')
 
     if (!token) {
-      this.$router.push('login')
+      this.$router.push('/login')
     }
   },
   components: {
@@ -34,5 +37,12 @@ export default {
 </script>
 
 <style lang='less'>
-
+.pageContent{
+  position:fixed;
+  left: 15%;
+  top: 7%;
+  width: 85%;
+  height: 93%;
+  background: #ccc;
+}
 </style>

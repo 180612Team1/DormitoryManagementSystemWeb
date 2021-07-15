@@ -15,14 +15,14 @@
 <script>
 export default {
   name: 'login',
-  data () {
+  data() {
     return {
       username: '',
       password: ''
     }
   },
   methods: {
-    async handleLogin () {
+    async handleLogin() {
       let response = await this.$axios({
         method: 'get',
         url: 'http://localhost:8091/user/login',
@@ -33,10 +33,20 @@ export default {
       })
       console.log(response)
       if (response.data.code === '1000') {
+        const { userName, role, trueName, schoolId, roomId, phoneNumber, id, checkTime, buildId, updateTime, deleteTime } = response.data
         sessionStorage.setItem('token', this.username)
         sessionStorage.setItem('role', response.data.role)
-        this.$store.state.userName = response.data.userName
-        this.$store.state.role = response.data.role
+        this.$store.state.userName = userName
+        this.$store.state.role = role
+        this.$store.state.trueName = trueName
+        this.$store.state.schoolId = schoolId
+        this.$store.state.roomId = roomId
+        this.$store.state.phoneNumber = phoneNumber
+        this.$store.state.id = id
+        this.$store.state.checkTime = checkTime
+        this.$store.state.buildId = buildId
+        this.$store.state.updateTime = updateTime
+        this.$store.state.deleteTime = deleteTime
         this.$router.push('/')
       } else {
         this.$message({

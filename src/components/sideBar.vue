@@ -1,7 +1,7 @@
 <template>
   <div class="sideBarContent">
     <div class="btnBox" v-for="(i, index) in menu" :key="i.id">
-      <button class="btn" :class="{show: selectBtn == index}"  @click="selectBtn = index">{{i.name}}</button>
+      <button class="btn" :class="{show: selectBtn == index}"  @click="handleClick(index,i.path)">{{i.name}}</button>
     </div>
   </div>
 </template>
@@ -16,15 +16,19 @@ export default {
     }
   },
   methods: {
-
+    handleClick(index, path) {
+      console.log(...arguments)
+      this.selectBtn = index
+      this.$router.push(`${path}`)
+    }
   },
   computed: {
     menu () {
       let admin = [
         {
           id: 1,
-          name: '公告信息'
-          // path: '/notice'
+          name: '公告信息',
+          path: '/notice'
         },
         {
           id: 2,
@@ -35,13 +39,18 @@ export default {
           id: 3,
           name: '考勤任务'
           // path: '/notice'
+        },
+        {
+          id: 4,
+          name: '个人信息',
+          path: '/info'
         }
       ]
       let houseparent = [
         {
           id: 1,
-          name: '公告信息'
-          // path
+          name: '公告信息',
+          path: '/notice'
         },
         {
           id: 2,
@@ -50,16 +59,27 @@ export default {
         {
           id: 3,
           name: '个人SAASD信息'
+        },
+        {
+          id: 4,
+          name: '个人信息',
+          path: '/info'
         }
       ]
       let student = [
         {
           id: 1,
-          name: '个人信息'
+          name: '公告信息',
+          path: '/notice'
         },
         {
           id: 2,
           name: '个人信息'
+        },
+        {
+          id: 3,
+          name: '个人信息',
+          path: '/info'
         }
       ]
       return this.role === 0 ? admin : this.role === 1 ? houseparent : student
@@ -84,7 +104,7 @@ export default {
   z-index: 3;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
-  position: fixed;
+  position: absolute;
   top: 7%;
   height: 93%;
   width: 15%;
