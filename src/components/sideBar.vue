@@ -32,18 +32,18 @@ export default {
         },
         {
           id: 2,
-          name: '宿舍管理员管理'
-          // path: '/notice'
+          name: '宿舍管理员管理',
+          path: '/houseparentManage'
         },
         {
           id: 3,
-          name: '学生管理'
-          // path: '/notice'
+          name: '学生管理',
+          path: '/studentManage'
         },
         {
           id: 4,
-          name: '报修记录'
-          // path: '/notice'
+          name: '报修记录',
+          path: '/repairRecord'
         },
         {
           id: 5,
@@ -59,11 +59,13 @@ export default {
         },
         {
           id: 2,
-          name: '学生管理'
+          name: '学生管理',
+          path: '/studentManage'
         },
         {
           id: 3,
-          name: '宿舍报修记录'
+          name: '报修记录',
+          path: '/repairRecord'
         },
         {
           id: 4,
@@ -79,7 +81,8 @@ export default {
         },
         {
           id: 2,
-          name: '宿舍报修申请'
+          name: '宿舍报修申请',
+          path: '/repairApply'
         },
         {
           id: 3,

@@ -3,6 +3,7 @@
     <div style="display: flex; width: 100%">
       <h1 class="noticeTitle">公告概览</h1>
       <el-button
+        v-if="role === 0 || role === 1"
         type="primary"
         round
         style="margin-left: 60%"
@@ -19,10 +20,12 @@
         <!-- <div id="noticeContent">{{ i.noticeContent }}</div> -->
         <div id="trueName">{{ i.role }}{{ i.trueName }}</div>
         <div id="noticeTime">{{ i.noticeTime }}</div>
+        <!-- {{i.schoolId}} -->
         <!-- {{ visible }}
         <el-button @click="visible = true" /> -->
         <div id="deleteNotice">
           <i
+          v-if="i.schoolId === schoolId || role == 0 "
             @click="handleDelete(i.id, i.noticeName)"
             class="el-icon-delete"
           ></i>
@@ -124,6 +127,7 @@ export default {
   name: 'notice',
   data() {
     return {
+      role: this.$store.state.role,
       schoolId: this.$store.state.schoolId,
       notice: [],
       buildings: [],
@@ -213,8 +217,12 @@ export default {
         url: 'http://localhost:8091/build/getAllBuildId'
       })
       // console.log(res.data.allBuildId)
-      this.buildings.push({ value: 0, label: 'all' })
-      res.data.allBuildId.forEach(item => this.buildings.push({ value: item.buildId, label: item.buildId }))
+      if (this.role === 0) {
+        this.buildings.push({ value: 0, label: 'all' })
+        res.data.allBuildId.forEach(item => this.buildings.push({ value: item.buildId, label: item.buildId }))
+      } else {
+        this.buildings.push({ value: this.$store.state.buildId, label: this.$store.state.buildId })
+      }
       this.dialogFormVisible = true
       console.log(this.buildings)
     },

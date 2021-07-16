@@ -6,6 +6,10 @@ const index = () => import('../view/index/index.vue')
 const login = () => import('../view/login/login.vue')
 const notice = () => import('../view/notice/notice.vue')
 const info = () => import('../view/info/info.vue')
+const repairApply = () => import('../view/repairApply/repairApply.vue')
+const studentManage = () => import('../view/studentManage/studentManage.vue')
+const houseparentManage = () => import('../view/houseparentManage/houseparentManage.vue')
+const repairRecord = () => import('../view/repairRecord/repairRecord.vue')
 const originalPush = Router.prototype.push
 
 Router.prototype.push = function push (location) {
@@ -31,6 +35,26 @@ export default new Router({
           path: '/info',
           name: 'info',
           component: info
+        },
+        {
+          path: '/repairApply',
+          name: 'repairApply',
+          component: repairApply
+        },
+        {
+          path: '/studentManage',
+          name: 'studentManage',
+          component: studentManage
+        },
+        {
+          path: '/repairRecord',
+          name: 'repairRecord',
+          component: repairRecord
+        },
+        {
+          path: '/houseparentManage',
+          name: 'houseparentManage',
+          component: houseparentManage
         }
       ]
     },
