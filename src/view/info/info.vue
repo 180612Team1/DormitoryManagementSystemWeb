@@ -27,8 +27,6 @@
           <span>{{ i.key }}</span>
           <span>{{ i.value }}</span>
         </div>
-        <div>{{ updateTime }}</div>
-        <div>{{ deleteTime }}</div>
       </div>
     </div>
   </div>
@@ -42,7 +40,7 @@ export default {
       formData: [
         {
           key: '身份',
-          value: this.$store.state.rolee === 0 ? `系统管理员` : this.role === 1 ? `宿舍管理员` : `学生`
+          value: this.$store.state.role === 0 ? `系统管理员` : this.role === 1 ? `宿舍管理员` : `学生`
         },
         {
           key: 'schoolId',

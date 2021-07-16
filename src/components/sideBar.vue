@@ -32,16 +32,21 @@ export default {
         },
         {
           id: 2,
-          name: '宿舍管理员信息'
+          name: '宿舍管理员管理'
           // path: '/notice'
         },
         {
           id: 3,
-          name: '考勤任务'
+          name: '学生管理'
           // path: '/notice'
         },
         {
           id: 4,
+          name: '报修记录'
+          // path: '/notice'
+        },
+        {
+          id: 5,
           name: '个人信息',
           path: '/info'
         }
@@ -54,11 +59,11 @@ export default {
         },
         {
           id: 2,
-          name: '个人信息'
+          name: '学生管理'
         },
         {
           id: 3,
-          name: '个人SAASD信息'
+          name: '宿舍报修记录'
         },
         {
           id: 4,
@@ -74,7 +79,7 @@ export default {
         },
         {
           id: 2,
-          name: '个人信息'
+          name: '宿舍报修申请'
         },
         {
           id: 3,
