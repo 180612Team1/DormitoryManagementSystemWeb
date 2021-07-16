@@ -41,6 +41,11 @@ export default {
           path: '/studentManage'
         },
         {
+          id: 6,
+          name: '宿舍楼管理',
+          path: ''
+        },
+        {
           id: 4,
           name: '报修记录',
           path: '/repairRecord'
