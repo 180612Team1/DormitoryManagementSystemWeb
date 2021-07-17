@@ -41,21 +41,29 @@
           @click="handleDelete()"
           >清空</el-button
         >
-        <el-button type="primary" @click="handleAdd()" :disabled=disabled
+        <el-button type="primary" @click="handleAdd()" :disabled="disabled"
           >创建</el-button
         >
       </div>
     </div>
-    <h1 class="addBuild">宿舍楼全览 {{disabled}}</h1>
+    <h1 class="addBuild">宿舍楼全览 {{ disabled }}</h1>
 
     <div class="buildWrapper">
-      <div v-for="(i) in buildInfo" :key="i.key" class="buildCard">
+      <div v-for="i in buildInfo" :key="i.key" class="buildCard">
         <div class="cardTitle">
           <div style="padding-left: 20px">
             No.{{ i.id }}&nbsp;{{ i.buildName }}
           </div>
         </div>
-        <div><span>楼层数：</span><span> {{i.buildFloor}}</span></div>
+        <div>
+          <span>楼层数：</span><span> {{ i.buildFloor }}</span>
+        </div>
+        <div>
+          <span>房间数：</span><span> {{ i.roomCount }}</span>
+        </div>
+        <div>
+          <span>已住学生数：</span><span> {{ i.stuCount }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -85,6 +93,26 @@ export default {
           role: this.$store.state.role
         }
       })
+      for (let v of res.data.buildInfo) {
+        let res1 = await this.$axios({
+          method: 'get',
+          url: 'http://localhost:8091/build/getRoomNumberByBuildId',
+          params: {
+            buildId: v.buildId
+          }
+        })
+        v['roomCount'] = res1.data
+        let res2 = await this.$axios({
+          method: 'get',
+          url: 'http://localhost:8091/user/getStudentsByBuildId',
+          params: {
+            buildId: v.buildId
+          }
+        })
+        v['stuCount'] = res2.data
+        console.log(res1.data)
+        console.log(res2.data)
+      }
       this.buildInfo = res.data.buildInfo
       console.log(this.buildInfo)
     },
