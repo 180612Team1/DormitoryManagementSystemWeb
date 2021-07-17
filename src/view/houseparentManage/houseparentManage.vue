@@ -63,7 +63,7 @@
     <!-- {{allAdmin}} -->
     <h1 class="infoTitle">已有管理员列表</h1>
     <div class="infoTable">
-      <el-table :data="allAdmin" height="400"  style="width: 76%">
+      <el-table :data="allAdmin" height="400" style="width: 76%">
         <el-table-column
           align="center"
           prop="trueName"

@@ -46,7 +46,7 @@
         >
       </div>
     </div>
-    <h1 class="addBuild">宿舍楼全览 {{ disabled }}</h1>
+    <h1 class="addBuild">宿舍楼全览</h1>
 
     <div class="buildWrapper">
       <div v-for="i in buildInfo" :key="i.key" class="buildCard">
@@ -55,14 +55,19 @@
             No.{{ i.id }}&nbsp;{{ i.buildName }}
           </div>
         </div>
-        <div>
-          <span>楼层数：</span><span> {{ i.buildFloor }}</span>
-        </div>
-        <div>
-          <span>房间数：</span><span> {{ i.roomCount }}</span>
-        </div>
-        <div>
-          <span>已住学生数：</span><span> {{ i.stuCount }}</span>
+        <div class="cardInfo">
+          <div>
+            <span style="font-weight: 400">楼层数：</span
+            ><span style="font-weight: 600"> {{ i.buildFloor }}</span>
+          </div>
+          <div>
+            <span style="font-weight: 400">房间数：</span
+            ><span style="font-weight: 600"> {{ i.roomCount }}</span>
+          </div>
+          <div>
+            <span style="font-weight: 400">已住学生数：</span
+            ><span style="font-weight: 600"> {{ i.stuCount }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -200,9 +205,16 @@ export default {
         color: #fff;
         font-weight: 700;
         width: 100%;
-        height: 50px;
-        line-height: 50px;
+        height: 70px;
+        line-height: 70px;
         background: #1890ff;
+      }
+      .cardInfo {
+        padding: 20px;
+        // background: fuchsia;
+        div {
+          margin-top: 10px;
+        }
       }
     }
   }

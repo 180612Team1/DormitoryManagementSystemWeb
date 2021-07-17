@@ -13,7 +13,7 @@ const repairRecord = () => import('../view/repairRecord/repairRecord.vue')
 const buildManage = () => import('../view/buildManage/buildManage.vue')
 const originalPush = Router.prototype.push
 
-Router.prototype.push = function push (location) {
+Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 Vue.use(Vuex)

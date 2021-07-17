@@ -4,21 +4,23 @@
     <div class="whoBox">
       <span class="whoText">{{ who }}</span>
     </div>
-    <div class="btnBox"><button class="btn" @click="handleLogout()">退出登录</button></div>
+    <div class="btnBox">
+      <button class="btn" @click="handleLogout()">退出登录</button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'topBar',
-  data () {
+  data() {
     return {
       username: this.$store.state.userName,
       role: this.$store.state.role
     }
   },
   methods: {
-    handleLogout () {
+    handleLogout() {
       // 清除token
       sessionStorage.clear()
       // 提示消息
@@ -31,7 +33,7 @@ export default {
 
   },
   computed: {
-    who () {
+    who() {
       let whoName = `欢迎您,${this.username}`
       let whoRole = this.role === 0 ? `系统管理员` : this.role === 1 ? `宿舍管理员` : `同学`
       return whoName + whoRole
@@ -40,7 +42,7 @@ export default {
   // created () {
   //   //
   // }
-  mounted () {
+  mounted() {
     //
   }
 
@@ -49,7 +51,7 @@ export default {
 
 <style lang='less'>
 .topBarContent {
-  color: #FFF;
+  color: #fff;
   position: absolute;
   display: flex;
   width: 100%;
@@ -87,7 +89,7 @@ export default {
     .btn {
       margin: auto;
       // background: #f56c6c;
-      background: transparent ;
+      background: transparent;
       color: white;
       margin-left: 2rem;
       padding: 0.2rem 0.8rem;

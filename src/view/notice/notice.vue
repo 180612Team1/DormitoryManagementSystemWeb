@@ -25,7 +25,7 @@
         <el-button @click="visible = true" /> -->
         <div id="deleteNotice">
           <i
-          v-if="i.schoolId === schoolId || role == 0 "
+            v-if="i.schoolId === schoolId || role == 0"
             @click="handleDelete(i.id, i.noticeName)"
             class="el-icon-delete"
           ></i>

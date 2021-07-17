@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-if="role ===0">所有</div>
-    <div v-if="role ===1">本楼</div>
+    <div v-if="role === 0">所有</div>
+    <div v-if="role === 1">本楼</div>
   </div>
 </template>
 
@@ -18,5 +18,4 @@ export default {
 </script>
 
 <style>
-
 </style>

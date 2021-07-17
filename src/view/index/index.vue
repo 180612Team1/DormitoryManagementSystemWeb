@@ -37,8 +37,8 @@ export default {
 </script>
 
 <style lang='less'>
-.pageContent{
-  position:fixed;
+.pageContent {
+  position: fixed;
   left: 15%;
   top: 7%;
   width: 85%;
