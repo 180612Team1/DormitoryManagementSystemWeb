@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pageContent">
     <div v-if="role === 0">所有</div>
     <div v-if="role === 1">本楼</div>
   </div>
@@ -17,5 +17,5 @@ export default {
 }
 </script>
 
-<style>
+<style lang='less' scoped>
 </style>

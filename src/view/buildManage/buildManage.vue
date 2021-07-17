@@ -49,6 +49,7 @@
     <h1 class="addBuild">宿舍楼全览</h1>
 
     <div class="buildWrapper">
+       <el-skeleton />
       <div v-for="i in buildInfo" :key="i.key" class="buildCard">
         <div class="cardTitle">
           <div style="padding-left: 20px">

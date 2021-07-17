@@ -3,6 +3,10 @@
     <side-bar></side-bar>
     <top-bar></top-bar>
     <div class="pageContent">
+
+      <div>我是首页信息123</div>
+      <h1>哈哈</h1>
+      <h1 @click="handleClick()">点我</h1>
       <router-view></router-view>
     </div>
   </div>
@@ -20,6 +24,9 @@ export default {
     }
   },
   methods: {
+    handleClick() {
+      this.$message.error('为什么要点我')
+    }
 
   },
   beforeCreate() {

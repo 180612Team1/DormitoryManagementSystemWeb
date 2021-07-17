@@ -1,6 +1,8 @@
 <template>
   <div class="topBarContent">
-    <div class="titleBox"><span class="titleText">宿舍管理系统</span></div>
+    <div class="titleBox">
+      <span class="titleText" @click="handleIndex()">宿舍管理系统</span>
+    </div>
     <div class="whoBox">
       <span class="whoText">{{ who }}</span>
     </div>
@@ -27,6 +29,9 @@ export default {
       this.$message.success('退出成功')
       // 回到登陆页面
       this.$router.push('/login')
+    },
+    handleIndex() {
+      this.$router.push('/')
     }
   },
   watch: {
@@ -70,6 +75,7 @@ export default {
     margin: auto;
     .titleText {
       margin: auto;
+      cursor: pointer;
     }
   }
   .whoBox {

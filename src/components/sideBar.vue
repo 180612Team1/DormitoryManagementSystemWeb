@@ -1,7 +1,13 @@
 <template>
   <div class="sideBarContent">
     <div class="btnBox" v-for="(i, index) in menu" :key="i.id">
-      <button class="btn" :class="{show: selectBtn == index}"  @click="handleClick(index,i.path)">{{i.name}}</button>
+      <button
+        class="btn"
+        :class="{ show: selectBtn == index }"
+        @click="handleClick(index, i.path)"
+      >
+        {{ i.name }}
+      </button>
     </div>
   </div>
 </template>
@@ -9,7 +15,7 @@
 <script>
 export default {
   name: 'sideBar',
-  data () {
+  data() {
     return {
       role: this.$store.state.role,
       selectBtn: 0
@@ -23,7 +29,7 @@ export default {
     }
   },
   computed: {
-    menu () {
+    menu() {
       let admin = [
         {
           id: 1,
@@ -123,23 +129,23 @@ export default {
   width: 15%;
   float: left;
   background: #fff;
-  .btnBox{
-    margin:0.7rem 0;
-    background:none;
-    height:2.5rem;
-    border:0px solid black;
-    .btn{
+  .btnBox {
+    margin: 0.7rem 0;
+    background: none;
+    height: 2.5rem;
+    border: 0px solid black;
+    .btn {
       cursor: pointer;
-      width:100%;
-      border:none;
+      width: 100%;
+      border: none;
       // border: 1px solid #7dbcff;
       // background:#7dbcff;
       // background:#abcef3;
       background: transparent;
-      height:2.5rem;
+      height: 2.5rem;
     }
-    .show{
-       background:#b2d5fa;
+    .show {
+      background: #b2d5fa;
     }
   }
 }

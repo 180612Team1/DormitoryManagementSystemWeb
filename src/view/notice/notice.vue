@@ -12,6 +12,7 @@
       >
     </div>
     <div>
+       <el-skeleton />
       <div class="noticeContent" v-for="i in currentNotices" :key="i.id">
         <!-- {{i.id}} -->
         <div id="noticeName" @click="handleDialog(i.id)">
