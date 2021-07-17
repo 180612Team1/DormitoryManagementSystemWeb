@@ -10,6 +10,7 @@ const repairApply = () => import('../view/repairApply/repairApply.vue')
 const studentManage = () => import('../view/studentManage/studentManage.vue')
 const houseparentManage = () => import('../view/houseparentManage/houseparentManage.vue')
 const repairRecord = () => import('../view/repairRecord/repairRecord.vue')
+const buildManage = () => import('../view/buildManage/buildManage.vue')
 const originalPush = Router.prototype.push
 
 Router.prototype.push = function push (location) {
@@ -55,6 +56,11 @@ export default new Router({
           path: '/houseparentManage',
           name: 'houseparentManage',
           component: houseparentManage
+        },
+        {
+          path: '/buildManage',
+          name: 'buildManage',
+          component: buildManage
         }
       ]
     },

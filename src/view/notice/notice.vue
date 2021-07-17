@@ -37,6 +37,7 @@
       title="提示"
       :visible.sync="dialogVisible"
       width="30%"
+      top="30vh"
       :modal="false"
       :center="true"
     >

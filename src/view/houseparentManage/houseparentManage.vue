@@ -60,7 +60,32 @@
         ></el-button>
       </div>
     </div>
-    <!-- <h1 class="addTitle">已有管理员列表</h1> -->
+    <!-- {{allAdmin}} -->
+    <h1 class="infoTitle">已有管理员列表</h1>
+    <div class="infoTable">
+      <el-table :data="allAdmin" height="400"  style="width: 76%">
+        <el-table-column
+          align="center"
+          prop="trueName"
+          label="姓名"
+          width="180"
+        >
+        </el-table-column>
+        <el-table-column
+          align="center"
+          prop="schoolId"
+          label="工号"
+          width="180"
+        >
+        </el-table-column>
+        <el-table-column align="center" prop="phoneNumber" label="手机号">
+        </el-table-column>
+        <el-table-column align="center" prop="trueRole" label="权限">
+        </el-table-column>
+        <el-table-column align="center" prop="buildId" label="管理宿舍楼">
+        </el-table-column>
+      </el-table>
+    </div>
   </div>
 </template>
 
@@ -87,6 +112,7 @@ export default {
 
       addBuildId: null,
       addRole: '1'
+
     }
   },
   methods: {
@@ -128,6 +154,7 @@ export default {
           type: 'success',
           duration: 1000
         })
+        this.$router.go(0)
       } else if (res.data.code === '1001') {
         this.$message({
           message: res.data.message,
@@ -141,10 +168,6 @@ export default {
           duration: 1000
         })
       }
-      // this.disabled = true
-      // setTimeout(() => {
-      //   this.disabled = false
-      // }, 1000)
     }
   },
   created() {
@@ -154,10 +177,19 @@ export default {
   },
   mounted() {
     this.handleMounted()
+    console.log(this.allAdmin)
   },
   computed: {
     allAdmin() {
-      return [this.admin, this.houseParent]
+      let table = [...this.admin, ...this.houseParent]
+      for (let v of table) {
+        if (v.role === 0) {
+          v.trueRole = '系统管理员'
+          v.buildId = '全体宿舍'
+        } else if (v.role === 1) { v.trueRole = '宿舍管理员' }
+      }
+      console.log(table)
+      return table
     },
     dateNow() {
       return `${this.year}-${this.month}-${this.day}`
@@ -247,6 +279,19 @@ export default {
     .adminInfo > div {
       margin-top: 10px;
     }
+  }
+  .infoTitle {
+    color: #303133;
+    margin: 0;
+    font-size: 2em;
+    border-left: 5px solid rgba(0, 0, 0, 0.7);
+    margin-top: 40px;
+    padding-left: 15px;
+  }
+  .infoTable {
+    text-align: center;
+    height: 600px;
+    margin-top: 40px;
   }
 }
 </style>

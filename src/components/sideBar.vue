@@ -43,7 +43,7 @@ export default {
         {
           id: 6,
           name: '宿舍楼管理',
-          path: ''
+          path: '/buildManage'
         },
         {
           id: 4,
