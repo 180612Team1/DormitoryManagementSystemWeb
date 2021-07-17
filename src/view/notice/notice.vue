@@ -17,12 +17,9 @@
         <div id="noticeName" @click="handleDialog(i.id)">
           {{ i.noticeName }}
         </div>
-        <!-- <div id="noticeContent">{{ i.noticeContent }}</div> -->
+
         <div id="trueName">{{ i.role }}{{ i.trueName }}</div>
         <div id="noticeTime">{{ i.noticeTime }}</div>
-        <!-- {{i.schoolId}} -->
-        <!-- {{ visible }}
-        <el-button @click="visible = true" /> -->
         <div id="deleteNotice">
           <i
             v-if="i.schoolId === schoolId || role == 0"
@@ -46,7 +43,6 @@
       </div>
       <span v-html="dialogContent">{{ dialogContent }}</span>
       <span slot="footer" class="dialog-footer">
-        <!-- <el-button @click="dialogVisible = false">取 消</el-button> -->
         <el-button type="primary" @click="dialogVisible = false"
           >确 定</el-button
         >
@@ -249,14 +245,13 @@ export default {
     }
   },
   created() {
-
+    //
   },
   components: {
   },
   computed: {
     total() {
-      let length = this.notice.length
-      return length
+      return this.notice.length
     },
     currentNotices() {
       let list = this.notice.slice() || []
@@ -284,13 +279,13 @@ export default {
   mounted() {
     this.handleMounted()
   },
-  beforeCreate() { }, // 生命周期 - 创建之前
-  beforeMount() { }, // 生命周期 - 挂载之前
-  beforeUpdate() { }, // 生命周期 - 更新之前
-  updated() { }, // 生命周期 - 更新之后
-  beforeDestroy() { }, // 生命周期 - 销毁之前
-  destroyed() { }, // 生命周期 - 销毁完成
-  activated() { } // 如果页面有keep-alive缓存功能，这个函数会触发
+  beforeCreate() { /* */ }, // 生命周期 - 创建之前
+  beforeMount() { /* */ }, // 生命周期 - 挂载之前
+  beforeUpdate() { /* */ }, // 生命周期 - 更新之前
+  updated() { /* */ }, // 生命周期 - 更新之后
+  beforeDestroy() { /* */ }, // 生命周期 - 销毁之前
+  destroyed() { /* */ }, // 生命周期 - 销毁完成
+  activated() { /* */ } // 如果页面有keep-alive缓存功能，这个函数会触发
 }
 </script>
 
