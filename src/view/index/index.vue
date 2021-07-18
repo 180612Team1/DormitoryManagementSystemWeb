@@ -3,10 +3,9 @@
     <side-bar></side-bar>
     <top-bar></top-bar>
     <div class="pageContent">
-
-      <div>我是首页信息123</div>
-      <h1>哈哈</h1>
-      <h1 @click="handleClick()">点我</h1>
+      <div class="pageBox">
+        zou ma deng
+      </div>
       <router-view></router-view>
     </div>
   </div>
@@ -51,5 +50,11 @@ export default {
   width: 85%;
   height: 93%;
   background: #ccc;
+  .pageBox {
+    width: 100%;
+    height: 100%;
+    padding: 3%;
+    overflow: scroll;
+  }
 }
 </style>

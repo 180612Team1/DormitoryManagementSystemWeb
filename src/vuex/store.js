@@ -17,8 +17,12 @@ const state = {
   updateTime: '',
   deleteTime: ''
 }
+const mutations = {
+
+}
 
 export default new Vuex.Store({
   state,
+  mutations,
   plugins: [persistedState()]
 })

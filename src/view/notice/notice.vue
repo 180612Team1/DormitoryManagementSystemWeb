@@ -196,7 +196,6 @@ export default {
               id: id
             }
           })
-          console.log(res)
           if (res.data === true) {
             this.handleMounted()
             this.$message({
@@ -222,7 +221,6 @@ export default {
         this.buildings.push({ value: this.$store.state.buildId, label: this.$store.state.buildId })
       }
       this.dialogFormVisible = true
-      console.log(this.buildings)
     },
     async handleAddNotice() {
       let res = await this.$axios({

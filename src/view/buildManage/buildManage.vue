@@ -1,7 +1,7 @@
 <template>
   <div class="pageContent">
-    <h1 v-if="role === 0" class="addBuild">创建宿舍楼</h1>
-    <div v-if="role === 0" class="addInfo">
+    <h1 class="addBuild">创建宿舍楼</h1>
+    <div class="addInfo">
       <div class="addItem">
         <div style="width: 150px">宿舍楼名</div>
         <el-input v-model="addName"></el-input>

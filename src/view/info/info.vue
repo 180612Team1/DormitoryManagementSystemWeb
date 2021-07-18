@@ -22,7 +22,7 @@
     <div class="mainInfo">
       <div class="leftInfo">
         <div class="leftTitle">个人信息</div>
-        <hr />
+        <hr style="border: 0; border-top: 1px dashed #a2a9b6" />
         <div v-for="i in formData" :key="i.key">
           <span>{{ i.key }}</span>
           <span>{{ i.value }}</span>
