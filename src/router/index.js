@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import Router from 'vue-router'
-const index = () => import('../view/index/index.vue')
+import index from '../view/index/index.vue'
 const login = () => import('../view/login/login.vue')
 const notice = () => import('../view/notice/notice.vue')
 const info = () => import('../view/info/info.vue')

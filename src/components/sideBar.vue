@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       role: this.$store.state.role,
-      selectBtn: 0
+      selectBtn: null
     }
   },
   methods: {
@@ -113,6 +113,17 @@ export default {
     // deep: true,
     // immediate: true
 
+  },
+  created() {
+    // 在页面加载时读取sessionStorage里的状态信息
+    if (sessionStorage.getItem('selectBtn')) {
+      this.selectBtn = sessionStorage.getItem('selectBtn')
+    }
+
+    // 在页面刷新时将vuex里的信息保存到sessionStorage里
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.setItem('selectBtn', this.selectBtn)
+    })
   }
 
 }
@@ -122,19 +133,21 @@ export default {
 .sideBarContent {
   z-index: 3;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
+  border:1px solid #30415686;
+  border-radius: 0 0px 0px 0;
   position: absolute;
   top: 7%;
   height: 93%;
   width: 15%;
   float: left;
-  background: #fff;
+  background: #304156;
   .btnBox {
     margin: 0.7rem 0;
     background: none;
     height: 2.5rem;
     border: 0px solid black;
     .btn {
+      color: rgb(191, 203, 217);
       cursor: pointer;
       width: 100%;
       border: none;
@@ -145,7 +158,8 @@ export default {
       height: 2.5rem;
     }
     .show {
-      background: #b2d5fa;
+      background: #263445;
+      color: rgb(64, 158, 255);
     }
   }
 }

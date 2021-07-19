@@ -23,9 +23,9 @@
       <div class="leftInfo">
         <div class="leftTitle">个人信息</div>
         <hr style="border: 0; border-top: 1px dashed #a2a9b6" />
-        <div v-for="i in formData" :key="i.key">
-          <span>{{ i.key }}</span>
-          <span>{{ i.value }}</span>
+        <div class="infoItem" v-for="i in formData" :key="i.key">
+          <span>{{ i.key }}:</span>
+          <span style="font-weight: 350">{{ i.value }}</span>
         </div>
       </div>
     </div>
@@ -37,49 +37,7 @@ export default {
   name: 'info',
   data() {
     return {
-      formData: [
-        {
-          key: '身份',
-          value: this.$store.state.role === 0 ? `系统管理员` : this.$store.state.role === 1 ? `宿舍管理员` : `学生`
-        },
-        {
-          key: 'schoolId',
-          value: this.$store.state.schoolId
-        },
-        {
-          key: '用户名',
-          value: this.$store.state.userName
-        },
-        {
-          key: '真实姓名',
-          value: this.$store.state.trueName
-        },
-        {
-          key: '联系方式',
-          value: this.$store.state.phoneNumber
-        },
-        {
-          key: '楼号',
-          value: this.$store.state.buildId
-        },
-        {
-          key: '房间号',
-          value: this.$store.state.roomId
-        },
-        {
-          key: '注册日期',
-          value: this.$store.state.checkTime
-        },
-        {
-          key: '入住日期',
-          value: this.$store.state.updateTime
-        },
-        {
-          key: '离住日期',
-          value: this.$store.state.deleteTime
-        }
-      ],
-
+      role: this.$store.state.role,
       id: this.$store.state.id,
       checkTime: this.$store.state.checkTime
     }
@@ -87,6 +45,128 @@ export default {
   mounted() {
     //
 
+  },
+  computed: {
+    formData() {
+      if (this.role === 2) {
+        return [
+          {
+            key: '身份',
+            value: this.$store.state.role === 0 ? `系统管理员` : this.$store.state.role === 1 ? `宿舍管理员` : `学生`
+          },
+          {
+            key: 'schoolId',
+            value: this.$store.state.schoolId
+          },
+          {
+            key: '用户名',
+            value: this.$store.state.userName
+          },
+          {
+            key: '真实姓名',
+            value: this.$store.state.trueName
+          },
+          {
+            key: '联系方式',
+            value: this.$store.state.phoneNumber
+          },
+          {
+            key: '楼号',
+            value: this.$store.state.buildId
+          },
+          {
+            key: '房间号',
+            value: this.$store.state.roomId
+          },
+          {
+            key: '注册日期',
+            value: this.$store.state.checkTime
+          },
+          {
+            key: '入住日期',
+            value: this.$store.state.updateTime
+          },
+          {
+            key: '离住日期',
+            value: this.$store.state.deleteTime
+          }
+        ]
+      } else if (this.role === 1) {
+        return [
+          {
+            key: '身份',
+            value: this.$store.state.role === 0 ? `系统管理员` : this.$store.state.role === 1 ? `宿舍管理员` : `学生`
+          },
+          {
+            key: 'schoolId',
+            value: this.$store.state.schoolId
+          },
+          {
+            key: '用户名',
+            value: this.$store.state.userName
+          },
+          {
+            key: '真实姓名',
+            value: this.$store.state.trueName
+          },
+          {
+            key: '联系方式',
+            value: this.$store.state.phoneNumber
+          },
+          {
+            key: '楼号',
+            value: this.$store.state.buildId
+          },
+          {
+            key: '注册日期',
+            value: this.$store.state.checkTime
+          },
+          {
+            key: '入住日期',
+            value: this.$store.state.updateTime
+          },
+          {
+            key: '离住日期',
+            value: this.$store.state.deleteTime
+          }
+        ]
+      } else if (this.role === 0) {
+        return [
+          {
+            key: '身份',
+            value: this.$store.state.role === 0 ? `系统管理员` : this.$store.state.role === 1 ? `宿舍管理员` : `学生`
+          },
+          {
+            key: 'schoolId',
+            value: this.$store.state.schoolId
+          },
+          {
+            key: '用户名',
+            value: this.$store.state.userName
+          },
+          {
+            key: '真实姓名',
+            value: this.$store.state.trueName
+          },
+          {
+            key: '联系方式',
+            value: this.$store.state.phoneNumber
+          },
+          {
+            key: '注册日期',
+            value: this.$store.state.checkTime
+          },
+          {
+            key: '入住日期',
+            value: this.$store.state.updateTime
+          },
+          {
+            key: '离住日期',
+            value: this.$store.state.deleteTime
+          }
+        ]
+      }
+    }
   }
 
 }
@@ -145,6 +225,7 @@ export default {
   }
   .mainInfo {
     display: flex;
+    // flex-wrap: wrap;
     background: rgb(255, 255, 255);
     box-sizing: border-box;
     width: 90%;
@@ -155,6 +236,8 @@ export default {
     border: 1px solid rgb(230, 235, 245);
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px 0px;
+
+    overflow: auto;
     .leftInfo {
       // background: red;
       width: 100%;
@@ -165,6 +248,14 @@ export default {
         font-size: 22px;
         margin-bottom: 20px;
       }
+    }
+    .infoItem {
+      width: max-content;
+      height: 30px;
+      line-height: 30px;
+
+      margin: 20px 0;
+      font-size: 20px;
     }
   }
 }

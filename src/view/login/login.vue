@@ -3,7 +3,7 @@
     <div class="loginBox">
       <div class="inputBox">
         <el-input v-model="username" placeholder="用户名"></el-input>
-        <el-input v-model="password" placeholder="密码"> </el-input>
+        <el-input show-password v-model="password" placeholder="密码"> </el-input>
       </div>
       <div class="btnBox">
         <button @click="handleLogin()">登录</button>
