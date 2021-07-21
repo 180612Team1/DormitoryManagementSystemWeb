@@ -1,8 +1,8 @@
 <template>
   <div class="loginContent">
     <div class="loginBox">
-      <div class="inputBox">
-        <el-input v-model="username" placeholder="用户名"></el-input>
+      <div class="inputBox " @keyup.enter="handleLogin()">
+        <el-input :autofocus=true v-model="username" placeholder="用户名"></el-input>
         <el-input show-password v-model="password" placeholder="密码"> </el-input>
       </div>
       <div class="btnBox">

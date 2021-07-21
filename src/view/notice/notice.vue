@@ -237,6 +237,7 @@ export default {
       console.log(res)
       this.handleMounted()
       this.clearAdd()
+      this.dialogFormVisible = false
     },
     clearAdd() {
       this.addTitle = ''
