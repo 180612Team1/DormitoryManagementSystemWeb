@@ -95,7 +95,7 @@ export default {
       this.recordInfo.push(...res.data.repairInfo)
     },
     async handleApply() {
-      let res = await this.$axios({
+      await this.$axios({
         method: 'POST',
         url: 'http://localhost:8091/repair/addRepair',
         params: {
@@ -106,7 +106,6 @@ export default {
           roomId: this.roomId
         }
       })
-      console.log(res)
       this.handleMounted()
     }
   },

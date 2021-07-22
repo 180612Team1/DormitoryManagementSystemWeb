@@ -259,7 +259,6 @@ export default {
 
         }
       })
-      console.log(res.data)
       if (res.data) {
         this.form.userName = ''
         this.form.passWord = ''

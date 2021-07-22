@@ -12,7 +12,6 @@
       >
     </div>
     <div>
-       <el-skeleton />
       <div class="noticeContent" v-for="i in currentNotices" :key="i.id">
         <!-- {{i.id}} -->
         <div id="noticeName" @click="handleDialog(i.id)">
@@ -178,7 +177,6 @@ export default {
       this.notice = res.data.notice
     },
     async handleDialog(id) {
-      console.log(id)
       this.dialogVisible = true
       let dialogContent = await this.notice.filter(item => item.id === id)[0].noticeContent
       let dialogTitle = await this.notice.filter(item => item.id === id)[0].noticeName
@@ -213,7 +211,6 @@ export default {
         method: 'GET',
         url: 'http://localhost:8091/build/getAllBuildId'
       })
-      // console.log(res.data.allBuildId)
       if (this.role === 0) {
         this.buildings.push({ value: 0, label: 'all' })
         res.data.allBuildId.forEach(item => this.buildings.push({ value: item.buildId, label: item.buildId }))
@@ -223,7 +220,7 @@ export default {
       this.dialogFormVisible = true
     },
     async handleAddNotice() {
-      let res = await this.$axios({
+      await this.$axios({
         method: 'POST',
         url: 'http://localhost:8091/notice/addNotice',
         params: {
@@ -234,7 +231,6 @@ export default {
           noticeForBuildId: this.value
         }
       })
-      console.log(res)
       this.handleMounted()
       this.clearAdd()
       this.dialogFormVisible = false
@@ -267,7 +263,6 @@ export default {
     currentNotices: {
       handler: function (val) {
         let pageNow = this.page
-        console.log(pageNow)
         if (val.length === 0) {
           // this.$router.go(0)
           this.page = pageNow - 1

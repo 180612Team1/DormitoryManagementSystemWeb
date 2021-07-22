@@ -111,7 +111,6 @@ export default {
     },
 
     async dealApply(id) {
-      // console.log(id)
       let res = await this.$axios({
         method: 'GET',
         url: 'http://localhost:8091/repair/dealOneRepair',

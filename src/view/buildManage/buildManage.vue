@@ -49,7 +49,6 @@
     <h1 class="addBuild">宿舍楼全览</h1>
 
     <div class="buildWrapper">
-       <el-skeleton />
       <div v-for="i in buildInfo" :key="i.key" class="buildCard">
         <div class="cardTitle">
           <div style="padding-left: 20px">
@@ -116,11 +115,8 @@ export default {
           }
         })
         v['stuCount'] = res2.data
-        console.log(res1.data)
-        console.log(res2.data)
       }
       this.buildInfo = res.data.buildInfo
-      console.log(this.buildInfo)
     },
     handleDelete() {
       this.addName = ''
@@ -128,7 +124,7 @@ export default {
       this.addFloor = 1
     },
     async handleAdd() {
-      let res = await this.$axios({
+      await this.$axios({
         method: 'POST',
         url: 'http://localhost:8091/build/createBuildAndRoom',
         params: {
@@ -138,7 +134,6 @@ export default {
           floorRooms: this.floorRooms
         }
       })
-      console.log(res)
       this.handleMounted()
     }
   },

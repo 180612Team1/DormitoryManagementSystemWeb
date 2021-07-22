@@ -23,7 +23,6 @@ export default {
   },
   methods: {
     handleClick(index, path) {
-      console.log(...arguments)
       this.selectBtn = index
       this.$router.push(`${path}`)
     }

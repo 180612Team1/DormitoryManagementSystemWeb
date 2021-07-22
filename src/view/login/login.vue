@@ -31,7 +31,6 @@ export default {
           passWord: this.password
         }
       })
-      console.log(response)
       if (response.data.code === '1000') {
         const { userName, role, trueName, schoolId, roomId, phoneNumber, id, checkTime, buildId, updateTime, deleteTime } = response.data
         sessionStorage.setItem('token', this.username)
@@ -54,7 +53,6 @@ export default {
           type: 'error',
           duration: 1000
         })
-        console.log('no')
       }
     }
   },

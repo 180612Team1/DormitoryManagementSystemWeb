@@ -121,7 +121,6 @@ export default {
         method: 'GET',
         url: 'http://localhost:8091/user/getAllAdmin'
       })
-      // console.log(res.data)
       for (let v of res.data) {
         v.role === 0 ? this.admin.push(v) : this.houseParent.push(v)
       }
@@ -147,7 +146,6 @@ export default {
           checkTime: this.dateNow
         }
       })
-      console.log(res)
       if (res.data.code === '1000') {
         this.$message({
           message: res.data.message,
@@ -177,7 +175,6 @@ export default {
   },
   mounted() {
     this.handleMounted()
-    console.log(this.allAdmin)
   },
   computed: {
     allAdmin() {
@@ -188,7 +185,6 @@ export default {
           v.buildId = '全体宿舍'
         } else if (v.role === 1) { v.trueRole = '宿舍管理员' }
       }
-      console.log(table)
       return table
     },
     dateNow() {
