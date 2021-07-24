@@ -126,7 +126,7 @@ export default {
   width: 100%;
   height: 100%;
   padding: 3%;
-  overflow: scroll;
+  overflow: auto;
   .searchRecord {
     margin: 0;
     padding-left: 15px;
