@@ -100,7 +100,7 @@ export default {
     async handleMounted() {
       let res = await this.$axios({
         method: 'GET',
-        url: 'http://localhost:8091/repair/adminGetRepair',
+        url: 'repair/adminGetRepair',
         params: {
           role: this.role,
           buildId: this.buildId || ''
@@ -113,7 +113,7 @@ export default {
     async dealApply(id) {
       let res = await this.$axios({
         method: 'GET',
-        url: 'http://localhost:8091/repair/dealOneRepair',
+        url: 'repair/dealOneRepair',
         params: {
           id: id
         }

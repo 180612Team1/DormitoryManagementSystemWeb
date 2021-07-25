@@ -93,7 +93,7 @@ export default {
     async handleMounted() {
       let res = await this.$axios({
         method: 'GET',
-        url: 'http://localhost:8091/build/getBuildInfo',
+        url: 'build/getBuildInfo',
         params: {
           role: this.$store.state.role
         }
@@ -101,7 +101,7 @@ export default {
       for (let v of res.data.buildInfo) {
         let res1 = await this.$axios({
           method: 'get',
-          url: 'http://localhost:8091/build/getRoomNumberByBuildId',
+          url: 'build/getRoomNumberByBuildId',
           params: {
             buildId: v.buildId
           }
@@ -109,7 +109,7 @@ export default {
         v['roomCount'] = res1.data
         let res2 = await this.$axios({
           method: 'get',
-          url: 'http://localhost:8091/user/getStudentsByBuildId',
+          url: 'user/getStudentsByBuildId',
           params: {
             buildId: v.buildId
           }
@@ -126,7 +126,7 @@ export default {
     async handleAdd() {
       await this.$axios({
         method: 'POST',
-        url: 'http://localhost:8091/build/createBuildAndRoom',
+        url: 'build/createBuildAndRoom',
         params: {
           buildName: this.addName,
           buildId: this.addId,

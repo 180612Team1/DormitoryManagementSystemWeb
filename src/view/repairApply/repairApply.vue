@@ -85,7 +85,7 @@ export default {
     async handleMounted() {
       let res = await this.$axios({
         method: 'GET',
-        url: 'http://localhost:8091/repair/stuGetRepair',
+        url: 'repair/stuGetRepair',
         params: {
           roomId: this.roomId
         }
@@ -97,7 +97,7 @@ export default {
     async handleApply() {
       await this.$axios({
         method: 'POST',
-        url: 'http://localhost:8091/repair/addRepair',
+        url: 'repair/addRepair',
         params: {
           repairTime: this.dateNow,
           repairGoods: this.applyGoods,

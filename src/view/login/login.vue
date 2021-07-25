@@ -25,7 +25,7 @@ export default {
     async handleLogin() {
       let response = await this.$axios({
         method: 'post',
-        url: 'http://localhost:8091/user/login',
+        url: 'user/login',
         data: {
           userName: this.username,
           passWord: this.password

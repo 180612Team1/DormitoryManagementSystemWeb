@@ -12,6 +12,7 @@ import '../src/assets/css/reset.less'
 
 Vue.use(ElementUI)
 Vue.prototype.$axios = axios
+axios.defaults.baseURL = 'http://localhost:8091'
 Vue.config.productionTip = false
 
 Vue.use(less)

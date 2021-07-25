@@ -157,7 +157,7 @@ export default {
     async handleMounted() {
       let res = await this.$axios({
         method: 'get',
-        url: 'http://localhost:8091/notice/getAllNotices',
+        url: 'notice/getAllNotices',
         params: {
           schoolId: this.schoolId
         }
@@ -165,7 +165,7 @@ export default {
       for (let k in res.data.notice) {
         let result = await this.$axios({
           method: 'get',
-          url: 'http://localhost:8091/user/getUserRoleAndTrueName',
+          url: 'user/getUserRoleAndTrueName',
           params: {
             schoolId: res.data.notice[k].schoolId
           }
@@ -189,7 +189,7 @@ export default {
         callback: async action => {
           let res = await this.$axios({
             method: 'GET',
-            url: 'http://localhost:8091/notice/deleteNoticeById',
+            url: 'notice/deleteNoticeById',
             params: {
               id: id
             }
@@ -209,7 +209,7 @@ export default {
     async handleOpenAdd() {
       let res = await this.$axios({
         method: 'GET',
-        url: 'http://localhost:8091/build/getAllBuildId'
+        url: 'build/getAllBuildId'
       })
       if (this.role === 0) {
         this.buildings.push({ value: 0, label: 'all' })
@@ -222,7 +222,7 @@ export default {
     async handleAddNotice() {
       await this.$axios({
         method: 'POST',
-        url: 'http://localhost:8091/notice/addNotice',
+        url: 'notice/addNotice',
         params: {
           schoolId: this.schoolId,
           noticeName: this.addTitle,

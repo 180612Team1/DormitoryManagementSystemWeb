@@ -119,14 +119,14 @@ export default {
     async handleMounted() {
       let res = await this.$axios({
         method: 'GET',
-        url: 'http://localhost:8091/user/getAllAdmin'
+        url: 'user/getAllAdmin'
       })
       for (let v of res.data) {
         v.role === 0 ? this.admin.push(v) : this.houseParent.push(v)
       }
       let result = await this.$axios({
         method: 'GET',
-        url: 'http://localhost:8091/build/getAllBuildId'
+        url: 'build/getAllBuildId'
       })
       result.data.allBuildId.forEach(item => this.buildings.push({ value: item.buildId, label: item.buildId }))
     },
@@ -134,7 +134,7 @@ export default {
       const { addSchoolId, addUsername, addPassword, addPhoneNumber, addTrueName, addRole, addBuildId } = this.$data
       let res = await this.$axios({
         method: 'GET',
-        url: 'http://localhost:8091/user/addAdmin',
+        url: 'user/addAdmin',
         params: {
           userName: addUsername,
           schoolId: addSchoolId,

@@ -202,7 +202,7 @@ export default {
     async handleMounted() {
       let res = await this.$axios({
         method: 'GET',
-        url: 'http://localhost:8091/user/getAllStudent',
+        url: 'user/getAllStudent',
         params: {
           role: this.role,
           buildId: this.buildId || ''
@@ -211,7 +211,7 @@ export default {
 
       let result = await this.$axios({
         method: 'GET',
-        url: 'http://localhost:8091/build/getAllBuildId'
+        url: 'build/getAllBuildId'
       })
       result.data.allBuildId.forEach(item => this.allBuildId.push({ value: item.buildId, label: item.buildId }))
       this.displayInfo = []
@@ -244,7 +244,7 @@ export default {
       const { userName, passWord, schoolId, trueName, phoneNumber, buildId, roomId } = this.form
       let res = await this.$axios({
         method: 'POST',
-        url: 'http://localhost:8091/user/addStu',
+        url: 'user/addStu',
         params: {
           userName: userName,
           passWord: passWord,
