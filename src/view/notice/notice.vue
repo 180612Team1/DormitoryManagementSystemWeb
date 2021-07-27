@@ -23,7 +23,7 @@
         <div id="deleteNotice">
           <i
             v-if="i.schoolId === schoolId || role == 0"
-            @click="handleDelete(i.id, i.noticeName)"
+            @click="handleOpenDelete(i.id, i.noticeName)"
             class="el-icon-delete"
           ></i>
         </div>
@@ -62,7 +62,7 @@
 
       <span slot="footer" class="dialog-footer">
         <el-button @click="deleteVisible = false">取 消</el-button>
-        <el-button type="primary" @click="deleteVisible = false"
+        <el-button type="primary" @click="handleDelete()"
           >确 定</el-button
         >
       </span>
@@ -132,6 +132,7 @@ export default {
       dialogContent: null,
       dialogTitle: null,
 
+      deleteId: null,
       deleteTitle: null,
 
       page: 1,
@@ -183,28 +184,27 @@ export default {
       this.dialogContent = dialogContent
       this.dialogTitle = dialogTitle
     },
-    async handleDelete(id, name) {
-      this.$alert(name, '删除公告', {
-        confirmButtonText: '确定',
-        callback: async action => {
-          let res = await this.$axios({
-            method: 'GET',
-            url: 'notice/deleteNoticeById',
-            params: {
-              id: id
-            }
-          })
-          if (res.data === true) {
-            this.handleMounted()
-            this.$message({
-              type: 'success',
-              message: `删除${name}成功`
-            })
-          }
+    handleOpenDelete(id, name) {
+      this.deleteVisible = true
+      this.deleteId = id
+      this.deleteTitle = name
+    },
+    async handleDelete() {
+      let res = await this.$axios({
+        method: 'GET',
+        url: 'notice/deleteNoticeById',
+        params: {
+          id: this.deleteId
         }
       })
-      // this.deleteVisible = true
-      this.deleteTitle = name
+      if (res.data === true) {
+        this.handleMounted()
+        this.$message({
+          type: 'success',
+          message: `删除${this.deleteTitle}成功`
+        })
+      }
+      this.deleteVisible = false
     },
     async handleOpenAdd() {
       let res = await this.$axios({
