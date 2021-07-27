@@ -49,10 +49,10 @@
     <h1 class="addBuild">宿舍楼全览</h1>
 
     <div class="buildWrapper">
-      <div v-for="i in buildInfo" :key="i.key" class="buildCard">
+      <div v-for="(i,index) in buildInfo" :key="i.key" class="buildCard">
         <div class="cardTitle">
           <div style="padding-left: 20px">
-            No.{{ i.id }}&nbsp;{{ i.buildName }}
+            No.{{ index +1 }}&nbsp;{{ i.buildName }}
           </div>
         </div>
         <div class="cardInfo">
@@ -98,6 +98,7 @@ export default {
           role: this.$store.state.role
         }
       })
+      // console.log(res.data.buildInfo)
       for (let v of res.data.buildInfo) {
         let res1 = await this.$axios({
           method: 'get',
@@ -106,6 +107,7 @@ export default {
             buildId: v.buildId
           }
         })
+        // console.log(res1)
         v['roomCount'] = res1.data
         let res2 = await this.$axios({
           method: 'get',
@@ -114,6 +116,7 @@ export default {
             buildId: v.buildId
           }
         })
+        console.log(res2)
         v['stuCount'] = res2.data
       }
       this.buildInfo = res.data.buildInfo
@@ -122,6 +125,7 @@ export default {
       this.addName = ''
       this.addId = ''
       this.addFloor = 1
+      this.floorRooms = 1
     },
     async handleAdd() {
       await this.$axios({
@@ -153,8 +157,8 @@ export default {
 .pageContent {
   width: 100%;
   height: 100%;
-  padding: 3%;
   overflow: auto;
+  padding: 3%;
   .addBuild {
     margin: 0;
     padding-left: 15px;
@@ -166,7 +170,6 @@ export default {
     width: 74%;
     height: 80px;
     line-height: 80px;
-
     background: #fff;
     margin: 30px 0;
     border-radius: 10px;
@@ -181,9 +184,14 @@ export default {
     }
   }
   .buildWrapper {
+    overflow: scroll;
+    overflow-y: hidden;
+    height: 56rem;
     width: 77%;
     // background: darkblue;
     margin-top: 30px;
+    padding-bottom: 35px;
+    padding-right: 15px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

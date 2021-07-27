@@ -136,7 +136,7 @@ export default {
   border-radius: 0 0px 0px 0;
   position: absolute;
   top: 7%;
-  height: 93%;
+  height: 92.8%;
   width: 15%;
   float: left;
   background: #304156;
