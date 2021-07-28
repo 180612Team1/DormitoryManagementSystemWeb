@@ -32,7 +32,7 @@
           <div style="margin-bottom: 10px">真实姓名</div>
           <el-input v-model="addTrueName"></el-input>
         </div>
-        <div class="addBuildId">
+        <div v-if="addRole === '1'" class="addBuildId">
           <div style="margin-bottom: 10px">管理楼号</div>
           <el-select v-model="addBuildId" placeholder="请选择">
             <el-option
