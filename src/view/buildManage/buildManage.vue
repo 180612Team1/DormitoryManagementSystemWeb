@@ -186,7 +186,7 @@ export default {
   .buildWrapper {
     overflow: scroll;
     overflow-y: hidden;
-    height: 56rem;
+    height: 50rem;
     width: 77%;
     // background: darkblue;
     margin-top: 30px;
@@ -195,6 +195,8 @@ export default {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
     .buildCard {
       box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
       border-radius: 10px;
