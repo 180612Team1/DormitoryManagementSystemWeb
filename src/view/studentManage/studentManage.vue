@@ -219,14 +219,16 @@ export default {
       this.saveList = this.displayInfo
     },
     async handleSelect() {
+      console.log(this.value)
+      console.log(this.searchValue)
       switch (this.value) {
         case 'buildId': this.displayInfo = this.saveList.filter(item => item.buildId === this.searchValue)
           break
-        case 'roomId': this.displayInfo = this.saveList.filter(item => item.roomId === this.roomId)
+        case 'roomId': this.displayInfo = this.saveList.filter(item => item.roomId === this.searchValue)
           break
         case 'trueName': this.displayInfo = this.saveList.filter(item => item.trueName === this.searchValue)
           break
-        case 'schoolId': this.displayInfo = this.saveList.filter(item => item.schoolId === this.searchValue)
+        case 'schoolId': this.displayInfo = this.saveList.filter(item => item.schoolId === Number(this.searchValue))
           break
 
         default:
@@ -252,7 +254,7 @@ export default {
           trueName: trueName,
           phoneNumber: phoneNumber,
           buildId: buildId,
-          roomId: roomId,
+          roomId: buildId + roomId,
 
           checkTime: this.dateNow,
           updateTime: this.dateNow
